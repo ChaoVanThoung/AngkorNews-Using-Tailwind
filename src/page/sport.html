@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports News</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <style>
+    /* Custom styles using Tailwind classes with our theme colors */
+    .bg-primary {
+      background-color: var(--color-primary);
+    }
+    .bg-secondary {
+      background-color: var(--color-secondary);
+    }
+    .bg-gray-sral {
+      background-color: var(--color-gray-sral);
+    }
+    .text-primary {
+      color: var(--color-primary);
+    }
+    .text-white-custom {
+      color: var(--color-white-text);
+    }
+    .text-black-custom {
+      color: var(--color-black-text);
+    }
+    .text-gray-custom {
+      color: var(--color-gray);
+    }
+    .border-primary {
+      border-color: var(--color-primary);
+    }
+    .hover-bg-primary:hover {
+      background-color: var(--color-primary);
+    }
+    .gay {
+      color: var(--color-white-text);
+    }
+
+    a,
+    button {
+      transition: color 0.3s ease, background-color 0.3s ease,
+        transform 0.2s ease;
+    }
+    img {
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+    .shadow-hover:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    #mobile-menu {
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+  </style>
+
+  <body>
+    <div
+      class="bg-gray-800 dark:bg-gray-950 text-white text-sm py-2 px-4 sm:px-6 md:px-8 lg:px-[150px]"
+    >
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center">
+            <i class="fa-solid fa-calendar-days mr-2 text-primary"></i>
+            <span>Monday, May 5, 2025</span>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <i class="fa-solid fa-location-dot mr-2 text-primary"></i>
+            <span>Phnom Penh, Cambodia</span>
+          </div>
+        </div>
+        <!-- Dark Mode Toggle Button -->
+        <button
+          id="dark-mode-toggle"
+          class="py-2 px-3 rounded-full bg-gray-700 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
+          title="Toggle dark mode"
+        >
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- header -->
+    <header class="bg-white shadow-sm">
+      <div
+        class="py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-[150px] flex justify-between items-center"
+      >
+        <h1 class="text-secondary font-extrabold text-3xl md:text-4xl">
+          Angkor <span class="text-red-600">News</span>
+        </h1>
+      </div>
+    </header>
+
+    <div class="sticky top-0 z-50">
+      <nav class="bg-primary px-4 sm:px-6 md:px-8 lg:px-[150px] py-4 shadow-lg">
+        <!-- Desktop Menu -->
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <button
+              id="menu-toggle"
+              class="text-white focus:outline-none lg:hidden mr-4"
+            >
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+            <ul class="hidden lg:flex text-white text-lg gap-6">
+              <li>
+                <a
+                  href="../../index.html"
+                  class="hover:text-secondary transition-colors flex items-center"
+                  ><i class="fa-solid fa-house mr-1"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Politics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Sports</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search news..."
+              class="bg-white/10 border border-white/20 text-white px-4 py-2 w-[150px] sm:w-[200px] md:w-[250px] rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-300 placeholder-white/70"
+            />
+            <button
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 animate-fade-in">
+          <ul
+            class="flex flex-col text-white text-xl gap-3 bg-primary/95 rounded-lg p-4"
+          >
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-house mr-2"></i> Home</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-landmark mr-2"></i> Politics</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-microchip mr-2"></i> Technology</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-futbol mr-2"></i> Sports</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-chart-line mr-2"></i> Business</a
+              >
+            </li>
+            <li class="py-2">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-film mr-2"></i> Entertainment</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-[150px] py-6 sm:py-8">
+      <section class="mb-8 sm:mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+          <!-- Main Featured Article -->
+          <div
+            class="lg:col-span-2 relative overflow-hidden rounded-xl shadow-hover"
+          >
+            <img
+              src="https://focus.independent.ie/thumbor/o6oHBGXkNITgR8FymmHDiAa3pLA=/0x0:3238x2158/960x640/prod-mh-ireland/e650c10a-685f-4d66-ab6f-8b1afe7b2a57/ea159e7d-5d44-48c0-9e85-18179a71d3c2/SOCCER%20Pl%20%2860%29.jpg"
+              alt="Featured Sports News"
+              class="w-full h-64 sm:h-80 lg:h-[28rem] object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6 lg:p-8"
+            >
+              <span
+                class="bg-primary text-white-custom px-2 sm:px-3 py-1 text-xs font-semibold rounded-full"
+                >BREAKING</span
+              >
+              <h2
+                class="text-xl sm:text-2xl lg:text-4xl font-extrabold text-white-custom mt-2 sm:mt-3 leading-tight"
+              >
+                Championship Game Ends in Dramatic Fashion as Underdogs Pull Off
+                Historic Victory
+              </h2>
+              <p
+                class="text-white-custom mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg"
+              >
+                Last-minute goal secures unexpected win in front of record crowd
+              </p>
+              <div class="flex items-center mt-3 sm:mt-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/03/Johnson%2C_Michael_D.jpg"
+                  alt="Author"
+                  class="w-8 sm:w-10 h-8 sm:h-10 rounded-full"
+                />
+                <span
+                  class="ml-2 sm:ml-3 text-white-custom text-xs sm:text-sm font-medium"
+                  >By Michael Johnson • 2 hours ago</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4 sm:space-y-6">
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >FOOTBALL</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                Star Quarterback Signs Record-Breaking Contract Extension
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Team commits $200 million to keep franchise player for five more
+                seasons
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">1 hour ago</p>
+            </div>
+
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >BASKETBALL</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                League Announces New Tournament Format for Upcoming Season
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Mid-season competition will offer additional championship
+                opportunity
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">3 hours ago</p>
+            </div>
+
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >TENNIS</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                Young Phenom Advances to Grand Slam Semifinals
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                19-year-old continues impressive run against veteran opponents
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">5 hours ago</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8 sm:mb-12">
+        <div class="flex justify-between items-center mb-4 sm:mb-6">
+          <h2
+            class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-black-custom"
+          >
+            Latest News
+          </h2>
+          <a href="#" class="text-primary text-sm font-semibold hover:underline"
+            >View All</a
+          >
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden shadow-hover"
+          >
+            <img
+              src="https://static01.nyt.com/images/2023/06/29/multimedia/29mlb-german-perfect-subtop-gcwp/29mlb-german-perfect-subtop-gcwp-superJumbo.jpg?quality=75&auto=webp"
+              alt="News Image"
+              class="w-full h-48 sm:h-52 object-cover"
+            />
+            <div class="p-4 sm:p-5">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >BASEBALL</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                Pitcher Throws Perfect Game in Season Opener
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Historic performance sets tone for championship aspirations
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">6 hours ago</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden shadow-hover"
+          >
+            <img
+              src="https://www.jacksonville.com/gcdn/authoring/authoring-images/2024/07/09/NFTU/74338427007-spt-25-tpc-fans-weather.JPG?width=1733&height=1120&fit=crop&format=pjpg&auto=webp"
+              alt="News Image"
+              class="w-full h-48 sm:h-52 object-cover"
+            />
+            <div class="p-4 sm:p-5">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >GOLF</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                Tournament Delayed Due to Unexpected Weather Conditions
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Officials hopeful play can resume tomorrow morning
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">8 hours ago</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden shadow-hover"
+          >
+            <img
+              src="https://www.arabnews.com/sites/default/files/pictures/May/17/2024/whatsapp_image_2024-05-23_at_18.02.04.jpeg"
+              alt="News Image"
+              class="w-full h-48 sm:h-52 object-cover"
+            />
+            <div class="p-4 sm:p-5">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >SOCCER</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                National Team Announces Squad for World Cup Qualifiers
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Several surprise inclusions as coach looks to refresh lineup
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">10 hours ago</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden shadow-hover"
+          >
+            <img
+              src="https://a.espncdn.com/photo/2025/0207/r1448594_1296x729_16-9.jpg"
+              alt="News Image"
+              class="w-full h-48 sm:h-52 object-cover"
+            />
+            <div class="p-4 sm:p-5">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >BASKETBALL</span
+              >
+              <h3 class="text-lg sm:text-xl font-bold text-black-custom mt-2">
+                Trade Deadline Approaches with Several Stars on the Move
+              </h3>
+              <p class="text-gray-custom mt-2 sm:mt-3 text-sm">
+                Teams positioning for playoff runs with key acquisitions
+              </p>
+              <p class="text-xs text-gray-custom mt-3 sm:mt-4">12 hours ago</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8 sm:mb-12">
+        <div class="flex justify-between items-center mb-4 sm:mb-6">
+          <h2
+            class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-black-custom"
+          >
+            Featured Analysis
+          </h2>
+          <a href="#" class="text-primary text-sm font-semibold hover:underline"
+            >More Analysis</a
+          >
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div
+            class="bg-white rounded-xl shadow-md p-4 sm:p-6 lg:col-span-2 shadow-hover"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://www.vsointernational.org/sites/default/files/styles/1600_scale_only/public/2022-12/Sarah%20Williams.jpg?itok=hyyo-y-o"
+                alt="Analyst"
+                class="w-12 sm:w-14 h-12 sm:h-14 rounded-full"
+              />
+              <div class="ml-3 sm:ml-4">
+                <h3 class="font-bold text-black-custom text-base sm:text-lg">
+                  Sarah Williams
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-custom">
+                  Senior Sports Analyst
+                </p>
+              </div>
+            </div>
+            <h3
+              class="text-lg sm:text-xl lg:text-2xl font-bold text-black-custom"
+            >
+              Why This Season's Championship Race Is Unlike Any We've Seen
+              Before
+            </h3>
+            <p class="text-gray-custom mt-2 sm:mt-3 text-sm sm:text-base">
+              The traditional powerhouses are struggling while new contenders
+              have emerged, creating one of the most unpredictable title races
+              in decades. Looking at the statistics and remaining schedules,
+              here's why we might see a surprise champion this year.
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-3 sm:mt-4 text-primary font-semibold hover:underline"
+              >Read Full Analysis</a
+            >
+          </div>
+
+          <div class="space-y-4 sm:space-y-6">
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <div class="flex items-start">
+                <img
+                  src="https://cdn.prod.website-files.com/64555bfdcb110dbf3e9e04bd/655c9f21a118e72029d1822e_U1ct-vSUc74r1i_jYujD-CRFnCAHOk9EopQoaJgRsKSoENI-CuEt9unm2wpbme5w5-Q67pKotxUK_C7dM8s1GQGS9QBNQPtGyIgsTh2ti_MZ20bOyQFTyM1mbyzoMtMnMB7l0SwsJZnJuWiJeNwqV4g.png"
+                  alt="Video Thumbnail"
+                  class="w-20 sm:w-24 h-14 sm:h-16 rounded object-cover"
+                />
+                <div class="ml-3 sm:ml-4">
+                  <span
+                    class="text-xs font-semibold text-primary tracking-wider"
+                    >VIDEO ANALYSIS</span
+                  >
+                  <h3
+                    class="text-base sm:text-lg font-bold text-black-custom mt-1"
+                  >
+                    Breaking Down the Game-Winning Strategy
+                  </h3>
+                  <p class="text-xs text-gray-custom mt-1">
+                    15 min video • 2.4K views
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <div class="flex items-start">
+                <img
+                  src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/e42c/live/4263a2c0-6708-11ef-8c32-f3c2bc7494c6.jpg.webp"
+                  alt="Podcast Thumbnail"
+                  class="w-20 sm:w-24 h-14 sm:h-16 rounded object-cover"
+                />
+                <div class="ml-3 sm:ml-4">
+                  <span
+                    class="text-xs font-semibold text-primary tracking-wider"
+                    >PODCAST</span
+                  >
+                  <h3
+                    class="text-base sm:text-lg font-bold text-black-custom mt-1"
+                  >
+                    Weekly Roundtable: Transfer Window Special
+                  </h3>
+                  <p class="text-xs text-gray-custom mt-1">
+                    45 min podcast • New episode
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-md shadow-hover">
+              <span class="text-xs font-semibold text-primary tracking-wider"
+                >STATS CORNER</span
+              >
+              <h3 class="text-base sm:text-lg font-bold text-black-custom mt-1">
+                The Numbers Behind This Season's Scoring Explosion
+              </h3>
+              <p class="text-xs text-gray-custom mt-1">
+                Data visualization • 5 min read
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex justify-between items-center mb-4 sm:mb-6">
+          <h2
+            class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-black-custom"
+          >
+            Upcoming Events
+          </h2>
+          <a href="#" class="text-primary text-sm font-semibold hover:underline"
+            >Full Schedule</a
+          >
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead>
+                <tr class="bg-gray-sral border-b border-gray-200">
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Date
+                  </th>
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Event
+                  </th>
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Teams
+                  </th>
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Location
+                  </th>
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Time
+                  </th>
+                  <th
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-semibold text-gray-custom uppercase tracking-wider"
+                  >
+                    Broadcast
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-gray-50">
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom font-medium"
+                  >
+                    May 6, 2025
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Basketball Semifinals
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Eagles vs. Wolves
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Metro Arena
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    7:30 PM EST
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-primary font-semibold"
+                  >
+                    ESPN
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom font-medium"
+                  >
+                    May 7, 2025
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Football League Match
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    City FC vs. United
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    National Stadium
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    3:00 PM EST
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-primary font-semibold"
+                  >
+                    FOX Sports
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom font-medium"
+                  >
+                    May 8, 2025
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Tennis Quarterfinals
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    J. Smith vs. A. Johnson
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Central Court
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    1:00 PM EST
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-primary font-semibold"
+                  >
+                    Tennis TV
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom font-medium"
+                  >
+                    May 9, 2025
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Golf Tournament - Round 1
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    PGA Tour
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    Pine Hills Course
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-black-custom"
+                  >
+                    8:00 AM EST
+                  </td>
+                  <td
+                    class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-primary font-semibold"
+                  >
+                    Golf Channel
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-20">
+      <!-- Top Footer Section -->
+      <div
+        class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
+      >
+        <!-- About Section -->
+        <div>
+          <h3 class="text-2xl font-bold mb-5">
+            Angkor <span class="text-red-600">News</span>
+          </h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Angkor News delivers the latest breaking news and information on the
+            latest top stories, weather, business, entertainment, politics, and
+            more from around the world.
+          </p>
+          <div class="flex gap-3 mt-4">
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Categories
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Politics</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Technology</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Sports</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Finance</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i> World
+                News</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Education</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recent Posts Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Recent Posts
+          </h3>
+          <div class="space-y-4">
+            <div class="flex gap-3 group">
+              <img
+                src="https://media.newyorker.com/photos/590979b91c7a8e33fb38fe5e/master/pass/Taub-Does-Anyone-Syria-Fear-International-Law.jpg"
+                alt="Recent post"
+                class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+              />
+              <div>
+                <p class="text-sm group-hover:text-primary transition-colors">
+                  Syrian civil war getting righteous indignation
+                </p>
+                <small class="text-gray-400">20 April 2017</small>
+              </div>
+            </div>
+            <div class="flex gap-3 group">
+              <img
+                src="https://www.macthai.com/wp-content/uploads/2023/01/14-16-inch-2021-mbps-back-to-back-feature.jpg"
+                alt="Recent post"
+                class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+              />
+              <div>
+                <p class="text-sm group-hover:text-primary transition-colors">
+                  Technology advances in computing power
+                </p>
+                <small class="text-gray-400">18 April 2017</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Contact Us
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa-solid fa-location-dot mt-1 mr-3 text-primary"></i>
+              <span>123 News Street, Phnom Penh, Cambodia</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa-solid fa-phone mr-3 text-primary"></i>
+              <span>+855 12 345 678</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa-solid fa-envelope mr-3 text-primary"></i>
+              <span>info@angkornews.com</span>
+            </li>
+          </ul>
+          <div class="mt-5">
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="px-4 py-2 w-full bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary rounded-l-md"
+              />
+              <button
+                class="bg-primary px-4 py-2 hover:bg-red-700 transition-colors rounded-r-md"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Footer Section -->
+      <div class="border-t border-gray-800">
+        <div
+          class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-6 flex flex-col sm:flex-row justify-between items-center"
+        >
+          <p class="text-center sm:text-left mb-4 sm:mb-0 text-gray-400">
+            © 2025 Angkor News. All Rights Reserved.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Advertise</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >About Us</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script src="../index.js"></script>
+
+  </body>
+</html>

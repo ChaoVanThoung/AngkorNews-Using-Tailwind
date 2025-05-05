@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Angkor News</title>
+    <link href="src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      /* Custom styles */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      .news-card-hover {
+        transition: all 0.3s ease;
+      }
+      .news-card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      .gradient-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 60%
+        );
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div
+    class="bg-gray-800 dark:bg-gray-950 text-white text-sm py-2 px-4 sm:px-6 md:px-8 lg:px-[150px]"
+  >
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center">
+          <i class="fa-solid fa-calendar-days mr-2 text-primary"></i>
+          <span>Monday, May 5, 2025</span>
+        </div>
+        <div class="hidden sm:flex items-center">
+          <i class="fa-solid fa-location-dot mr-2 text-primary"></i>
+          <span>Phnom Penh, Cambodia</span>
+        </div>
+      </div>
+      <!-- Dark Mode Toggle Button -->
+      <button 
+        id="dark-mode-toggle" 
+        class="py-2 px-3 rounded-full bg-gray-700 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
+        title="Toggle dark mode"
+      >
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+    <!-- header -->
+    <header class="bg-white shadow-sm">
+      <div
+        class="py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-[150px] flex justify-between items-center"
+      >
+        <h1 class="text-secondary font-extrabold text-3xl md:text-4xl">
+          Angkor <span class="text-red-600">News</span>
+        </h1>
+      </div>
+    </header>
+
+    <div class="sticky top-0 z-50">
+      <nav class="bg-primary px-4 sm:px-6 md:px-8 lg:px-[150px] py-4 shadow-lg">
+        <!-- Desktop Menu -->
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <button
+              id="menu-toggle"
+              class="text-white focus:outline-none lg:hidden mr-4"
+            >
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+            <ul class="hidden lg:flex text-white text-lg gap-6">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-secondary transition-colors flex items-center"
+                  ><i class="fa-solid fa-house mr-1"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Politics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="src/page/sport.html" class="hover:text-secondary transition-colors"
+                  >Sports</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search news..."
+              class="bg-white/10 border border-white/20 text-white px-4 py-2 w-[150px] sm:w-[200px] md:w-[250px] rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-300 placeholder-white/70"
+            />
+            <button
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 animate-fade-in">
+          <ul
+            class="flex flex-col text-white text-xl gap-3 bg-primary/95 rounded-lg p-4"
+          >
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-house mr-2"></i> Home</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-landmark mr-2"></i> Politics</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-microchip mr-2"></i> Technology</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-futbol mr-2"></i> Sports</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-chart-line mr-2"></i> Business</a
+              >
+            </li>
+            <li class="py-2">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-film mr-2"></i> Entertainment</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- main -->
+    <main class="px-4 sm:px-6 md:px-8 lg:px-[150px] bg-gray-50">
+      <!-- featured categories -->
+      <section
+        class="flex flex-wrap justify-center mt-6 bg-white rounded-lg shadow-sm overflow-hidden"
+      >
+        <div
+          class="flex flex-col items-center p-3 md:p-4 border-r-[1px] border-r-gray-200 border-b-[1px] border-b-gray-200 hover:bg-gray-50 hover:text-primary cursor-pointer text-gray w-1/3 sm:w-1/5 transition-colors"
+        >
+          <i class="fa-regular fa-star text-lg md:text-xl"></i>
+          <p class="font-bold mt-1 text-xs sm:text-sm md:text-base">
+            Featured News
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center p-3 md:p-4 border-r-[1px] border-r-gray-200 border-b-[1px] border-b-gray-200 hover:bg-gray-50 hover:text-primary cursor-pointer text-gray w-1/3 sm:w-1/5 transition-colors"
+        >
+          <i class="fa-regular fa-heart text-lg md:text-xl"></i>
+          <p class="font-bold mt-1 text-xs sm:text-sm md:text-base">
+            Most Popular
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center p-3 md:p-4 border-r-[1px] border-r-gray-200 border-b-[1px] border-b-gray-200 hover:bg-gray-50 hover:text-primary cursor-pointer text-gray w-1/3 sm:w-1/5 transition-colors"
+        >
+          <i class="fa-solid fa-fire text-lg md:text-xl"></i>
+          <p class="font-bold mt-1 text-xs sm:text-sm md:text-base">Hot News</p>
+        </div>
+        <div
+          class="flex flex-col items-center p-3 md:p-4 border-r-[1px] border-r-gray-200 border-b-[1px] border-b-gray-200 hover:bg-gray-50 hover:text-primary cursor-pointer text-gray w-1/3 sm:w-1/5 transition-colors"
+        >
+          <i class="fa-solid fa-bolt-lightning text-lg md:text-xl"></i>
+          <p class="font-bold mt-1 text-xs sm:text-sm md:text-base">
+            Trending News
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center p-3 md:p-4 border-b-[1px] border-b-gray-200 hover:bg-gray-50 hover:text-primary cursor-pointer text-gray w-1/3 sm:w-1/5 transition-colors"
+        >
+          <i class="fa-regular fa-eye text-lg md:text-xl"></i>
+          <p class="font-bold mt-1 text-xs sm:text-sm md:text-base">
+            Most Watched
+          </p>
+        </div>
+      </section>
+
+      <!-- News Update -->
+      <section class="mt-6 md:mt-10">
+        <div
+          class="flex flex-col sm:flex-row rounded-lg overflow-hidden shadow-md"
+        >
+          <div
+            class="text-white bg-secondary px-3 sm:px-5 py-3 sm:py-4 font-bold w-full sm:w-[480px] flex items-center"
+          >
+            <i class="fa-solid fa-newspaper text-xl mr-3"></i>
+            <div>
+              <span class="text-lg">News Update</span>
+            </div>
+          </div>
+          <div class="bg-white flex items-center py-2 sm:py-0 px-4 w-full">
+            <marquee behavior="" direction="" class="text-gray-700"
+              >Breaking: Global Climate Summit begins today &emsp;&emsp; Tech
+              stocks surge after positive earnings reports &emsp;&emsp; New
+              healthcare bill passes in parliament &emsp;&emsp; Sports: National
+              team advances to semifinals &emsp;&emsp; Entertainment:
+              Award-winning film director announces new project
+            </marquee>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured News Section -->
+      <section class="mt-6 md:mt-10 ">
+        <div class="flex flex-col lg:flex-row gap-5 lg:h-[500px]">
+          <!-- Left Column -->
+          <div
+            class="w-full lg:w-1/2 relative group h-[300px] lg:h-full rounded-xl overflow-hidden shadow-lg"
+          >
+            <img
+              class="object-cover absolute w-full h-full transition-transform duration-700 group-hover:scale-110"
+              src="https://media.newyorker.com/photos/590979b91c7a8e33fb38fe5e/master/pass/Taub-Does-Anyone-Syria-Fear-International-Law.jpg"
+              alt=""
+            />
+            <div class="absolute inset-0 gradient-overlay"></div>
+            <div class="absolute top-0 left-0 w-full p-3 flex justify-between">
+              <span
+                class="bg-secondary p-2 text-white rounded-md font-medium text-sm shadow-md"
+                >POLITICS</span
+              >
+              <span
+                class="bg-primary py-2 px-3 text-white rounded-md shadow-md"
+              >
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </span>
+            </div>
+            <div class="absolute bottom-0 left-0 p-4 w-full">
+              <small
+                class="text-white text-[15px] hover:text-yellow-300 transition-colors flex items-center"
+              >
+                <i class="fa-regular fa-clock mr-2"></i>
+                Norma R. Hogan • 20 April 2017
+              </small>
+              <h3
+                class="text-shadow font-bold text-base sm:text-lg md:text-xl text-white hover:text-yellow-300 transition-colors mt-1"
+              >
+                Syrian civil war getting righteous indignation and dislike men
+                who are so beguiled and demoralized by the sure.
+              </h3>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-1/2 grid grid-rows-2 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div
+                class="relative group h-[200px] sm:h-auto rounded-xl overflow-hidden shadow-lg"
+              >
+                <img
+                  class="absolute w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  src="https://t3.ftcdn.net/jpg/08/18/52/32/360_F_818523251_T67ETZ2Dx8YMq9aQKgTeRw4ok5mCaeou.jpg"
+                  alt="Image 1"
+                />
+                <div class="absolute inset-0 gradient-overlay"></div>
+                <div
+                  class="absolute top-0 left-0 w-full p-3 flex justify-between"
+                >
+                  <span
+                    class="bg-secondary p-2 text-white rounded-md font-medium text-sm shadow-md"
+                    >TRAVEL</span
+                  >
+                  <span
+                    class="bg-primary py-2 px-3 text-white rounded-md shadow-md"
+                  >
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                  </span>
+                </div>
+                <div class="absolute bottom-0 left-0 p-3 w-full">
+                  <small
+                    class="text-white text-[15px] hover:text-yellow-300 transition-colors flex items-center"
+                  >
+                    <i class="fa-regular fa-clock mr-2"></i>
+                    Corey I. Dean • 20 April 2017
+                  </small>
+                  <h3
+                    class="text-shadow font-bold text-[15px] text-white hover:text-yellow-300 transition-colors mt-1"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing
+                  </h3>
+                </div>
+              </div>
+
+              <div
+                class="relative group h-[200px] sm:h-auto rounded-xl overflow-hidden shadow-lg"
+              >
+                <img
+                  class="absolute w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  src="https://theaseanmagazine.asean.org/files/media/2024/07/issue38-06-1.jpg"
+                  alt="Image 2"
+                />
+                <div class="absolute inset-0 gradient-overlay"></div>
+                <div
+                  class="absolute top-0 left-0 w-full p-3 flex justify-between"
+                >
+                  <span
+                    class="bg-secondary p-2 text-white rounded-md font-medium text-sm shadow-md"
+                    >EDUCATION</span
+                  >
+                  <span
+                    class="bg-primary py-2 px-3 text-white rounded-md shadow-md"
+                  >
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                  </span>
+                </div>
+                <div class="absolute bottom-0 left-0 p-3 w-full">
+                  <small
+                    class="text-white text-[15px] hover:text-yellow-300 transition-colors flex items-center"
+                  >
+                    <i class="fa-regular fa-clock mr-2"></i>
+                    Corey I. Dean • 20 April 2017
+                  </small>
+                  <h3
+                    class="text-shadow font-bold text-[15px] text-white hover:text-yellow-300 transition-colors mt-1"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="relative group h-[200px] sm:h-auto rounded-xl overflow-hidden shadow-lg"
+            >
+              <img
+                class="absolute w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="https://dobetter.esade.edu/sites/default/files/post/2024-10/victory-trump-EU-w.webp"
+                alt="Image 3"
+              />
+              <div class="absolute inset-0 gradient-overlay"></div>
+              <div
+                class="absolute top-0 left-0 w-full p-3 flex justify-between"
+              >
+                <span
+                  class="bg-secondary p-2 text-white rounded-md font-medium text-sm shadow-md"
+                  >POLITICS</span
+                >
+                <span
+                  class="bg-primary py-2 px-3 text-white rounded-md shadow-md"
+                >
+                  <i class="fa-solid fa-bolt-lightning"></i>
+                </span>
+              </div>
+              <div class="absolute bottom-0 left-0 p-4 w-full">
+                <small
+                  class="text-white text-[15px] hover:text-yellow-300 transition-colors flex items-center"
+                >
+                  <i class="fa-regular fa-clock mr-2"></i>
+                  Corey I. Dean • 20 April 2017
+                </small>
+                <h3
+                  class="text-shadow font-bold text-base sm:text-lg md:text-xl text-white hover:text-yellow-300 transition-colors mt-1"
+                >
+                  Lorem Ipsum is simply dummy text of the printing
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- News Categories Section -->
+      <section class="mt-10 md:mt-15">
+        <div class="w-full flex flex-col lg:flex-row gap-6 lg:gap-10">
+          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            <!-- World News Section -->
+            <div class="bg-white p-5 rounded-xl shadow-md">
+              <div class="border-l-4 border-primary pl-3 mb-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-primary font-bold text-lg">WORLD NEWS</h4>
+                  <div class="text-gray-400">
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative group rounded-lg overflow-hidden">
+                <img
+                  class="w-full h-[200px] object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                  src="https://news.miami.edu/_assets/images-stories/2023/02/ukraine-one-year-hero-940x529.jpg"
+                  alt=""
+                />
+                <div class="absolute inset-0 gradient-overlay rounded-lg"></div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-secondary p-2 text-white rounded-md font-medium text-sm"
+                    >WAR</span
+                  >
+                </div>
+                <div class="absolute top-3 right-3">
+                  <span class="bg-primary py-2 px-3 text-white rounded-md">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                  </span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <small class="text-white text-[15px] flex items-center">
+                    <i class="fa-regular fa-clock mr-2"></i>
+                    Astaroth • Yesterday 03:52 pm
+                  </small>
+                  <h3 class="text-shadow font-bold text-[15px] text-white mt-1">
+                    Syria attacked by a long established fact that a reader will
+                    be distracted by
+                  </h3>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div
+                  class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                >
+                  <img
+                    class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                    src="https://imemc.org/wp-content/uploads/2017/06/gaza2014-ALRAY.jpg"
+                    alt=""
+                  />
+                  <div class="flex items-center text-gray-500 text-xs mb-1">
+                    <i class="fa-regular fa-clock mr-1"></i>
+                    <span>Hantu Raya • 17 April 2017</span>
+                  </div>
+                  <h3
+                    class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                  >
+                    It is a long established fact that a reader will done
+                  </h3>
+                </div>
+
+                <div
+                  class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                >
+                  <img
+                    class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                    src="https://media.npr.org/assets/img/2016/03/29/ap_742589797091_custom-c16bff6746456e830928e498136c31cec146f94d.jpg?s=1100&c=50&f=jpeg"
+                    alt=""
+                  />
+                  <div class="flex items-center text-gray-500 text-xs mb-1">
+                    <i class="fa-regular fa-clock mr-1"></i>
+                    <span>Astaroth • 17 April 2017</span>
+                  </div>
+                  <h3
+                    class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                  >
+                    It is a long established fact that a reader will done
+                  </h3>
+                </div>
+
+                <div
+                  class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                >
+                  <img
+                    class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                    src="https://imemc.org/wp-content/uploads/2017/06/gaza2014-ALRAY.jpg"
+                    alt=""
+                  />
+                  <div class="flex items-center text-gray-500 text-xs mb-1">
+                    <i class="fa-regular fa-clock mr-1"></i>
+                    <span>Hantu Raya • 17 April 2017</span>
+                  </div>
+                  <h3
+                    class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                  >
+                    It is a long established fact that a reader will done
+                  </h3>
+                </div>
+
+                <div
+                  class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                >
+                  <img
+                    class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                    src="https://imemc.org/wp-content/uploads/2017/06/gaza2014-ALRAY.jpg"
+                    alt=""
+                  />
+                  <div class="flex items-center text-gray-500 text-xs mb-1">
+                    <i class="fa-regular fa-clock mr-1"></i>
+                    <span>Hantu Raya • 17 April 2017</span>
+                  </div>
+                  <h3
+                    class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                  >
+                    It is a long established fact that a reader will done
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technology Section -->
+            <div class="bg-white p-5 rounded-xl shadow-md">
+              <div class="border-l-4 border-primary pl-3 mb-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-primary font-bold text-lg">TECHNOLOGY</h4>
+                  <div class="text-gray-400">
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative group rounded-lg overflow-hidden">
+                <img
+                  class="w-full h-[200px] object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                  src="https://www.macthai.com/wp-content/uploads/2023/01/14-16-inch-2021-mbps-back-to-back-feature.jpg"
+                  alt=""
+                />
+                <div class="absolute inset-0 gradient-overlay rounded-lg"></div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-secondary p-2 text-white rounded-md font-medium text-sm"
+                    >COMPUTER</span
+                  >
+                </div>
+                <div class="absolute top-3 right-3">
+                  <span class="bg-primary py-2 px-3 text-white rounded-md">
+                    <i class="fa-regular fa-heart"></i>
+                  </span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <small class="text-white text-[15px] flex items-center">
+                    <i class="fa-regular fa-clock mr-2"></i>
+                    Astaroth • Yesterday 03:52 pm
+                  </small>
+                  <h3 class="text-shadow font-bold text-[15px] text-white mt-1">
+                    New MacBook Pro models feature improved performance and
+                    battery life
+                  </h3>
+                </div>
+              </div>
+
+              <div class="mt-5 space-y-4">
+                <div
+                  class="flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  <div
+                    class="w-full sm:w-[120px] h-[120px] sm:h-[65px] flex-shrink-0"
+                  >
+                    <img
+                      class="w-full h-full object-cover rounded-lg"
+                      src="https://www.techinsights.com/sites/default/files/2024-09/huawei-mate-xt-tri-fold.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>June 16, 2017</span>
+                    </div>
+                    <h3
+                      class="font-semibold text-gray-800 hover:text-primary transition-colors"
+                    >
+                      Long established fact that a reader will be distracted by
+                      the readable
+                    </h3>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  <div
+                    class="w-full sm:w-[120px] h-[120px] sm:h-[65px] flex-shrink-0"
+                  >
+                    <img
+                      class="w-full h-full object-cover rounded-lg"
+                      src="https://terra-drone.com.sa/wp-content/uploads/2024/02/Drone-Delivery.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>June 16, 2017</span>
+                    </div>
+                    <h3
+                      class="font-semibold text-gray-800 hover:text-primary transition-colors"
+                    >
+                      Long established fact that a reader will be distracted by
+                      the readable
+                    </h3>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  <div
+                    class="w-full sm:w-[120px] h-[120px] sm:h-[65px] flex-shrink-0"
+                  >
+                    <img
+                      class="w-full h-full object-cover rounded-lg"
+                      src="https://www.techinsights.com/sites/default/files/2024-09/huawei-mate-xt-tri-fold.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>June 16, 2017</span>
+                    </div>
+                    <h3
+                      class="font-semibold text-gray-800 hover:text-primary transition-colors"
+                    >
+                      Long established fact that a reader will be distracted by
+                      the readable
+                    </h3>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  <div
+                    class="w-full sm:w-[120px] h-[120px] sm:h-[65px] flex-shrink-0"
+                  >
+                    <img
+                      class="w-full h-full object-cover rounded-lg"
+                      src="https://www.techinsights.com/sites/default/files/2024-09/huawei-mate-xt-tri-fold.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>June 16, 2017</span>
+                    </div>
+                    <h3
+                      class="font-semibold text-gray-800 hover:text-primary transition-colors"
+                    >
+                      Long established fact that a reader will be distracted by
+                      the readable
+                    </h3>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Finance Section -->
+            <div
+              class="bg-white p-5 rounded-xl shadow-md col-span-1 md:col-span-2"
+            >
+              <div class="border-l-4 border-primary pl-3 mb-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-primary font-bold text-lg">FINANCE</h4>
+                  <div class="text-gray-400">
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="hover:text-primary transition-colors p-1">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mt-3">
+                <div
+                  class="news-card-hover bg-white rounded-lg border border-gray-100 overflow-hidden"
+                >
+                  <div class="relative">
+                    <img
+                      class="w-full h-[220px] object-cover"
+                      src="https://www.timedoctor.com/blog/images/2024/03/Finance-team-structure.jpg"
+                      alt=""
+                    />
+                    <div class="absolute top-3 left-3">
+                      <span
+                        class="bg-secondary p-2 text-white rounded-md font-medium text-sm shadow-md"
+                        >BUSINESS</span
+                      >
+                    </div>
+                    <div class="absolute top-3 right-3">
+                      <span
+                        class="bg-primary py-2 px-3 text-white rounded-md shadow-md"
+                      >
+                        <i class="fa-regular fa-star"></i>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="p-4">
+                    <div class="flex items-center text-gray-500 text-xs mb-2">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>Vassago • Today 03:30 am</span>
+                    </div>
+                    <h4
+                      class="font-bold text-gray-800 hover:text-primary transition-colors"
+                    >
+                      At vero eos et accusamus et iusto odio dignissimos ducimus
+                      qui blanditiis praesentium voluptatum deleniti atque
+                      corrupti quos dolores et quas.
+                    </h4>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div
+                    class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                  >
+                    <img
+                      class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                      src="https://assets.obj.ca/2023/08/6Wgk4KAR-Untitled-design-1024x576.jpg"
+                      alt=""
+                    />
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>Astaroth • 17 April 2017</span>
+                    </div>
+                    <h3
+                      class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                    >
+                      It is a long established fact that a reader will done
+                    </h3>
+                  </div>
+
+                  <div
+                    class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                  >
+                    <img
+                      class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                      src="https://cdn.britannica.com/83/195483-050-62AB0C05/Crowds-people-shopping-district-Shibuya-Japan-Tokyo.jpg"
+                      alt=""
+                    />
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>Astaroth • 17 April 2017</span>
+                    </div>
+                    <h3
+                      class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                    >
+                      It is a long established fact that a reader will done
+                    </h3>
+                  </div>
+
+                  <div
+                    class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                  >
+                    <img
+                      class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                      src="https://boroughmarket.org.uk/wp-content/uploads/2024/10/13-Acre-Orchard.jpg"
+                      alt=""
+                    />
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>Astaroth • 17 April 2017</span>
+                    </div>
+                    <h3
+                      class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                    >
+                      It is a long established fact that a reader will done
+                    </h3>
+                  </div>
+
+                  <div
+                    class="news-card-hover bg-white rounded-lg p-3 border border-gray-100"
+                  >
+                    <img
+                      class="mb-2 w-full h-[100px] object-cover rounded-lg"
+                      src="https://tradebrains.in/wp-content/uploads/2018/07/latest-financial-news.jpeg"
+                      alt=""
+                    />
+                    <div class="flex items-center text-gray-500 text-xs mb-1">
+                      <i class="fa-regular fa-clock mr-1"></i>
+                      <span>Astaroth • 17 April 2017</span>
+                    </div>
+                    <h3
+                      class="line-clamp-2 font-bold text-gray-800 leading-5 hover:text-primary transition-colors"
+                    >
+                      It is a long established fact that a reader will done
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="w-full lg:w-[350px]">
+            <!-- ad -->
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+              <p class="text-xs text-gray-500 mb-2">ADVERTISEMENT</p>
+              <div
+                class="w-full h-[300px] bg-gray-100 flex items-center justify-center"
+              >
+                <img
+                  class="w-full h-full object-contain"
+                  src="src/iamge/ad-300x250-1.jpg"
+                  alt="Advertisement"
+                />
+              </div>
+            </div>
+
+            <!-- Featured News -->
+            <div class="mt-8 bg-white rounded-xl shadow-md overflow-hidden">
+              <div class="border-l-4 border-primary p-4">
+                <div class="flex justify-between items-center">
+                  <h2 class="font-bold text-primary text-lg">Featured News</h2>
+                  <i class="fa-regular fa-newspaper text-gray-400"></i>
+                </div>
+              </div>
+
+              <div class="p-5">
+                <div
+                  class="flex bg-white rounded-lg overflow-hidden mb-4 border-b border-gray-100"
+                >
+                  <div class="flex flex-wrap">
+                    <a
+                      class="bg-primary text-white py-2 px-4 text-sm font-medium"
+                      href="#"
+                      >Hot News</a
+                    >
+                    <a
+                      class="py-2 px-4 border-t border-r border-b border-gray-200 hover:text-primary transition-colors text-sm font-medium"
+                      href="#"
+                      >Trendy News</a
+                    >
+      
+                  </div>
+                </div>
+
+                <div class="space-y-5">
+                  <div
+                    class="flex flex-col sm:flex-row gap-3 sm:gap-5 py-4 border-b border-gray-100 hover:bg-gray-50 transition-colors rounded-lg p-2"
+                  >
+                    <div
+                      class="w-full sm:w-[120px] h-[120px] sm:h-[70px] flex-shrink-0"
+                    >
+                      <img
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://media.cntraveller.com/photos/68075a015434a266cb771fc3/16:9/w_1280,c_limit/16_Restaurants_vinai-header.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <div class="flex items-center text-gray-500 text-xs mb-1">
+                        <i class="fa-regular fa-clock mr-1"></i>
+                        <span>Ninurta • 16 April 2017</span>
+                      </div>
+                      <h4
+                        class="font-bold text-gray-800 hover:text-primary transition-colors"
+                      >
+                        Long established fact that a reader will be distracted
+                      </h4>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex flex-col sm:flex-row gap-3 sm:gap-5 py-4 border-b border-gray-100 hover:bg-gray-50 transition-colors rounded-lg p-2"
+                  >
+                    <div
+                      class="w-full sm:w-[120px] h-[120px] sm:h-[70px] flex-shrink-0"
+                    >
+                      <img
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://english.news.cn/20231229/c1b7dff2834e4c1cb40b1d22d3a8af63/c7f7bdd02dbb4f5f9eb23ac2182faea3.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <div class="flex items-center text-gray-500 text-xs mb-1">
+                        <i class="fa-regular fa-clock mr-1"></i>
+                        <span>Ninurta • 16 April 2017</span>
+                      </div>
+                      <h4
+                        class="font-bold text-gray-800 hover:text-primary transition-colors"
+                      >
+                        Long established fact that a reader will be distracted
+                      </h4>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex flex-col sm:flex-row gap-3 sm:gap-5 py-4 hover:bg-gray-50 transition-colors rounded-lg p-2"
+                  >
+                    <div
+                      class="w-full sm:w-[120px] h-[120px] sm:h-[70px] flex-shrink-0"
+                    >
+                      <img
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://scx1.b-cdn.net/csz/news/800a/2017/20-newtechnolog.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <div class="flex items-center text-gray-500 text-xs mb-1">
+                        <i class="fa-regular fa-clock mr-1"></i>
+                        <span>Ninurta • 16 April 2017</span>
+                      </div>
+                      <h4
+                        class="font-bold text-gray-800 hover:text-primary transition-colors"
+                      >
+                        Long established fact that a reader will be distracted
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-gray-900 text-white mt-20">
+      <!-- Top Footer Section -->
+      <div
+        class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
+      >
+        <!-- About Section -->
+        <div>
+          <h3 class="text-2xl font-bold mb-5">
+            Angkor <span class="text-red-600">News</span>
+          </h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Angkor News delivers the latest breaking news and information on the
+            latest top stories, weather, business, entertainment, politics, and
+            more from around the world.
+          </p>
+          <div class="flex gap-3 mt-4">
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Categories
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Politics</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Technology</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Sports</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Finance</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i> World
+                News</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-primary transition-colors flex items-center"
+                ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                Education</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recent Posts Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Recent Posts
+          </h3>
+          <div class="space-y-4">
+            <div class="flex gap-3 group">
+              <img
+                src="https://media.newyorker.com/photos/590979b91c7a8e33fb38fe5e/master/pass/Taub-Does-Anyone-Syria-Fear-International-Law.jpg"
+                alt="Recent post"
+                class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+              />
+              <div>
+                <p class="text-sm group-hover:text-primary transition-colors">
+                  Syrian civil war getting righteous indignation
+                </p>
+                <small class="text-gray-400">20 April 2017</small>
+              </div>
+            </div>
+            <div class="flex gap-3 group">
+              <img
+                src="https://www.macthai.com/wp-content/uploads/2023/01/14-16-inch-2021-mbps-back-to-back-feature.jpg"
+                alt="Recent post"
+                class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+              />
+              <div>
+                <p class="text-sm group-hover:text-primary transition-colors">
+                  Technology advances in computing power
+                </p>
+                <small class="text-gray-400">18 April 2017</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+          <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+            Contact Us
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa-solid fa-location-dot mt-1 mr-3 text-primary"></i>
+              <span>123 News Street, Phnom Penh, Cambodia</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa-solid fa-phone mr-3 text-primary"></i>
+              <span>+855 12 345 678</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa-solid fa-envelope mr-3 text-primary"></i>
+              <span>info@angkornews.com</span>
+            </li>
+          </ul>
+          <div class="mt-5">
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="px-4 py-2 w-full bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary rounded-l-md"
+              />
+              <button
+                class="bg-primary px-4 py-2 hover:bg-red-700 transition-colors rounded-r-md"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Footer Section -->
+      <div class="border-t border-gray-800">
+        <div
+          class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-6 flex flex-col sm:flex-row justify-between items-center"
+        >
+          <p class="text-center sm:text-left mb-4 sm:mb-0 text-gray-400">
+            © 2025 Angkor News. All Rights Reserved.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >Advertise</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary transition-colors text-gray-400"
+              >About Us</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Mobile Menu Toggle Script -->
+    <script src="src/index.js"></script>
+  </body>
+</html>

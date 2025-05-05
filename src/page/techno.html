@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology News</title>
+    <link rel="stylesheet" href="../output.css">
+</head>
+<body>
+    <div
+    class="bg-gray-800 dark:bg-gray-950 text-white text-sm py-2 px-4 sm:px-6 md:px-8 lg:px-[150px]"
+  >
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center">
+          <i class="fa-solid fa-calendar-days mr-2 text-primary"></i>
+          <span>Monday, May 5, 2025</span>
+        </div>
+        <div class="hidden sm:flex items-center">
+          <i class="fa-solid fa-location-dot mr-2 text-primary"></i>
+          <span>Phnom Penh, Cambodia</span>
+        </div>
+      </div>
+      <!-- Dark Mode Toggle Button -->
+      <button 
+        id="dark-mode-toggle" 
+        class="py-2 px-3 rounded-full bg-gray-700 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
+        title="Toggle dark mode"
+      >
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+    <!-- header -->
+    <header class="bg-white shadow-sm">
+      <div
+        class="py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-[150px] flex justify-between items-center"
+      >
+        <h1 class="text-secondary font-extrabold text-3xl md:text-4xl">
+          Angkor <span class="text-red-600">News</span>
+        </h1>
+      </div>
+    </header>
+
+    <div class="sticky top-0 z-50">
+      <nav class="bg-primary px-4 sm:px-6 md:px-8 lg:px-[150px] py-4 shadow-lg">
+        <!-- Desktop Menu -->
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <button
+              id="menu-toggle"
+              class="text-white focus:outline-none lg:hidden mr-4"
+            >
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+            <ul class="hidden lg:flex text-white text-lg gap-6">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-secondary transition-colors flex items-center"
+                  ><i class="fa-solid fa-house mr-1"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Politics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary transition-colors"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="src/page/sport.html" class="hover:text-secondary transition-colors"
+                  >Sports</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search news..."
+              class="bg-white/10 border border-white/20 text-white px-4 py-2 w-[150px] sm:w-[200px] md:w-[250px] rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-300 placeholder-white/70"
+            />
+            <button
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 animate-fade-in">
+          <ul
+            class="flex flex-col text-white text-xl gap-3 bg-primary/95 rounded-lg p-4"
+          >
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-house mr-2"></i> Home</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-landmark mr-2"></i> Politics</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-microchip mr-2"></i> Technology</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-futbol mr-2"></i> Sports</a
+              >
+            </li>
+            <li class="py-2 border-b border-white/10">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-chart-line mr-2"></i> Business</a
+              >
+            </li>
+            <li class="py-2">
+              <a
+                href="#"
+                class="hover:text-yellow-300 transition-colors flex items-center"
+                ><i class="fa-solid fa-film mr-2"></i> Entertainment</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+        <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-10"
+    >
+      <!-- Card 1 -->
+      <div class="relative bg-white rounded overflow-hidden shadow">
+        <img
+          src="../iamge/tech/pop-drones-67ae01c11a8ea.avif"
+          class="w-full h-48 sm:h-56 object-cover"
+        />
+        <div
+          class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        >
+          Drone
+        </div>
+        <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
+          ⚡
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            Corey I. Dean <span class="text-gray-400">• 20 April 2017</span>
+          </p>
+          <h2
+            class="font-bold text-base sm:text-lg text-secondary  bg-opacity-70 mt-2 p-1"
+          >
+            Lorem Ipsum is simply dummy text of the printing
+          </h2>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="relative md:col-span-2 bg-white rounded overflow-hidden shadow"
+      >
+        <img
+          src="../iamge/tech/csit-sa-hero-1200x400.jpg"
+          class="w-full h-64 sm:h-72 object-cover"
+        />
+        <div
+          class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        >
+          Computer
+        </div>
+        <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
+          ⭐
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            New Tecnology <span class="text-gray-400">• 20 April 2017</span>
+          </p>
+          <h2
+            class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
+          >
+            Siriyan civil war getting righteous indignation and dislike men who
+            are so beguiled and demoralized by the sure.
+          </h2>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="relative bg-white rounded overflow-hidden shadow">
+        <img
+          src="../iamge/tech/Phantom-1-first-dji-drone-600x400.jpg.webp"
+          class="w-full h-48 sm:h-56 object-cover"
+        />
+        <div
+          class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        >
+          Gadget
+        </div>
+        <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
+          ⚡
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            VR-Headset <span class="text-gray-400">• 20 April 2017</span>
+          </p>
+          <h2
+            class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
+          >
+            Lorem Ipsum is simply dummy text of the printing
+          </h2>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="relative bg-white rounded overflow-hidden shadow">
+        <img
+          src="../iamge/tech/bangkok-thailand-aug-7-2024-600nw-2500368583.webp"
+          class="w-full h-48 sm:h-56 object-cover"
+        />
+        <div
+          class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        >
+          Gadget
+        </div>
+        <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
+          ⚽
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            New iPhone <span class="text-gray-400">• 20 April 2024</span>
+          </p>
+          <h2
+            class="font-bold text-base sm:text-lg text-secondary  bg-opacity-70 mt-2 p-1"
+          >
+            Lorem Ipsum is simply dummy text of the printing
+          </h2>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="relative bg-white rounded overflow-hidden shadow">
+        <img
+          src="../iamge/tech/00nat-george-qanon-top3-bglt-copy-articleLarge.webp"
+          class="w-full h-48 sm:h-56 object-cover"
+        />
+        <div
+          class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        >
+          Magazine
+        </div>
+        <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
+          📖
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            Lated <span class="text-gray-400">• 12 April 2025</span>
+          </p>
+          <h2
+            class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
+          >
+            On the other hand, we denounce with righteous and deby
+          </h2>
+        </div>
+      </div>
+    </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-20">
+        <!-- Top Footer Section -->
+        <div
+          class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
+        >
+          <!-- About Section -->
+          <div>
+            <h3 class="text-2xl font-bold mb-5">
+              Angkor <span class="text-red-600">News</span>
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Angkor News delivers the latest breaking news and information on the
+              latest top stories, weather, business, entertainment, politics, and
+              more from around the world.
+            </p>
+            <div class="flex gap-3 mt-4">
+              <a
+                href="#"
+                class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+  
+          <!-- Categories Section -->
+          <div>
+            <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+              Categories
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                  Politics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                  Technology</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                  Sports</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                  Finance</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i> World
+                  News</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors flex items-center"
+                  ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
+                  Education</a
+                >
+              </li>
+            </ul>
+          </div>
+  
+          <!-- Recent Posts Section -->
+          <div>
+            <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+              Recent Posts
+            </h3>
+            <div class="space-y-4">
+              <div class="flex gap-3 group">
+                <img
+                  src="https://media.newyorker.com/photos/590979b91c7a8e33fb38fe5e/master/pass/Taub-Does-Anyone-Syria-Fear-International-Law.jpg"
+                  alt="Recent post"
+                  class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+                />
+                <div>
+                  <p class="text-sm group-hover:text-primary transition-colors">
+                    Syrian civil war getting righteous indignation
+                  </p>
+                  <small class="text-gray-400">20 April 2017</small>
+                </div>
+              </div>
+              <div class="flex gap-3 group">
+                <img
+                  src="https://www.macthai.com/wp-content/uploads/2023/01/14-16-inch-2021-mbps-back-to-back-feature.jpg"
+                  alt="Recent post"
+                  class="w-20 h-16 object-cover rounded-md group-hover:opacity-80 transition-opacity"
+                />
+                <div>
+                  <p class="text-sm group-hover:text-primary transition-colors">
+                    Technology advances in computing power
+                  </p>
+                  <small class="text-gray-400">18 April 2017</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Contact Section -->
+          <div>
+            <h3 class="font-bold text-xl mb-5 border-b border-gray-700 pb-2">
+              Contact Us
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot mt-1 mr-3 text-primary"></i>
+                <span>123 News Street, Phnom Penh, Cambodia</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa-solid fa-phone mr-3 text-primary"></i>
+                <span>+855 12 345 678</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa-solid fa-envelope mr-3 text-primary"></i>
+                <span>info@angkornews.com</span>
+              </li>
+            </ul>
+            <div class="mt-5">
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  class="px-4 py-2 w-full bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary rounded-l-md"
+                />
+                <button
+                  class="bg-primary px-4 py-2 hover:bg-red-700 transition-colors rounded-r-md"
+                >
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Bottom Footer Section -->
+        <div class="border-t border-gray-800">
+          <div
+            class="px-4 sm:px-6 md:px-8 lg:px-[150px] py-6 flex flex-col sm:flex-row justify-between items-center"
+          >
+            <p class="text-center sm:text-left mb-4 sm:mb-0 text-gray-400">
+              © 2025 Angkor News. All Rights Reserved.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <a
+                href="#"
+                class="hover:text-primary transition-colors text-gray-400"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+                class="hover:text-primary transition-colors text-gray-400"
+                >Terms of Service</a
+              >
+              <a
+                href="#"
+                class="hover:text-primary transition-colors text-gray-400"
+                >Advertise</a
+              >
+              <a
+                href="#"
+                class="hover:text-primary transition-colors text-gray-400"
+                >About Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+</html>
