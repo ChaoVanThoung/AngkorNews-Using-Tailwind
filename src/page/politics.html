@@ -3,9 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Technology News</title>
+    <title>Politics</title>
     <link rel="stylesheet" href="../output.css" />
   </head>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoom-in {
+      0% {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slide-left {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+
+    .animate-zoom-in {
+      animation: zoom-in 0.7s ease-out forwards;
+    }
+
+    .animate-slide-left {
+      animation: slide-left 0.8s ease-out forwards;
+    }
+
+    .animation-delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .animation-delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .animation-delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
   <body>
     <div
       class="bg-gray-800 dark:bg-gray-950 text-white text-sm py-2 px-4 sm:px-6 md:px-8 lg:px-[150px]"
@@ -137,144 +199,263 @@
       </nav>
     </div>
 
-    <main>
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-10"
+    <main class="max-w-7xl mx-auto p-6 md:p-8">
+      <h1
+        class="text-4xl font-bold border-b-2 border-red-600 inline-block mb-6 animate-slide-left"
       >
-        <!-- Card 1 -->
-        <div class="relative bg-white rounded overflow-hidden shadow">
+        Politics
+      </h1>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Left: Main Article -->
+        <div class="md:col-span-2 animate-zoom-in">
           <img
-            src="../iamge/tech/pop-drones-67ae01c11a8ea.avif"
-            class="w-full h-48 sm:h-56 object-cover"
+            src="../iamge/politics/pic1.png"
+            alt="Main politics article"
+            class="w-full h-auto rounded-lg mb-4"
           />
-          <div
-            class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
-          >
-            Drone
-          </div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
-            ⚡
-          </div>
-          <div class="p-4">
-            <p class="text-sm text-gray-700">
-              Corey I. Dean <span class="text-gray-400">• 20 April 2017</span>
-            </p>
-            <h2
-              class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
-            >
-              Lorem Ipsum is simply dummy text of the printing
-            </h2>
-          </div>
+          <p class="text-sm text-red-600 mb-1">National</p>
+          <h2 class="text-2xl font-bold mb-2 leading-snug">
+            Youth Association Calls for the Barring of NPP’s Activities Amid
+            Court Against Senior Party Leaders
+          </h2>
+          <p class="text-sm text-gray-500">
+            28 Apr 2025 9:10 PM |
+            <span class="text-red-600 font-semibold">Khuon Narim</span>
+          </p>
         </div>
 
-        <!-- Card 2 -->
-        <div
-          class="relative md:col-span-2 bg-white rounded overflow-hidden shadow"
-        >
-          <img
-            src="../iamge/tech/csit-sa-hero-1200x400.jpg"
-            class="w-full h-64 sm:h-72 object-cover"
-          />
-          <div
-            class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
+        <!-- Right: Latest News -->
+        <div class="space-y-4">
+          <h3
+            class="bg-red-600 text-white font-bold px-4 py-2 rounded animate-fade-in-up"
           >
-            Computer
-          </div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
-            ⭐
-          </div>
-          <div class="p-4">
-            <p class="text-sm text-gray-700">
-              New Tecnology <span class="text-gray-400">• 20 April 2017</span>
-            </p>
-            <h2
-              class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
-            >
-              Siriyan civil war getting righteous indignation and dislike men
-              who are so beguiled and demoralized by the sure.
-            </h2>
-          </div>
-        </div>
+            LATEST NEWS
+          </h3>
 
-        <!-- Card 3 -->
-        <div class="relative bg-white rounded overflow-hidden shadow">
-          <img
-            src="../iamge/tech/Phantom-1-first-dji-drone-600x400.jpg.webp"
-            class="w-full h-48 sm:h-56 object-cover"
-          />
-          <div
-            class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
-          >
-            Gadget
-          </div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
-            ⚡
-          </div>
-          <div class="p-4">
-            <p class="text-sm text-gray-700">
-              VR-Headset <span class="text-gray-400">• 20 April 2017</span>
-            </p>
-            <h2
-              class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
-            >
-              Lorem Ipsum is simply dummy text of the printing
-            </h2>
-          </div>
-        </div>
+          <!-- News Items -->
+          <div class="space-y-4 px-2 py-4">
+            <!-- News Item -->
+            <div class="flex gap-4 animate-slide-left delay-100">
+              <img
+                src="../iamge/politics/pic2.png"
+                alt="RSF Report"
+                class="w-32 h-24 object-cover rounded-md shadow"
+              />
+              <div>
+                <p class="text-base font-semibold leading-snug">
+                  Xi’s Visit Brings Deals, Not Chinese Loans — Chinese President
+                  Xi Jinping wraps up a five-day.
+                </p>
+                <p class="text-xs text-gray-500 mt-1">2 May 2025</p>
+              </div>
+            </div>
 
-        <!-- Card 4 -->
-        <div class="relative bg-white rounded overflow-hidden shadow">
-          <img
-            src="../iamge/tech/bangkok-thailand-aug-7-2024-600nw-2500368583.webp"
-            class="w-full h-48 sm:h-56 object-cover"
-          />
-          <div
-            class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
-          >
-            Gadget
-          </div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
-            ⚽
-          </div>
-          <div class="p-4">
-            <p class="text-sm text-gray-700">
-              New iPhone <span class="text-gray-400">• 20 April 2024</span>
-            </p>
-            <h2
-              class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
-            >
-              Lorem Ipsum is simply dummy text of the printing
-            </h2>
-          </div>
-        </div>
+            <div class="flex gap-4 animate-slide-left delay-200">
+              <img
+                src="../iamge/politics/pic3.png"
+                alt="Youth Association Barring NPP"
+                class="w-32 h-24 object-cover rounded-md shadow"
+              />
+              <div>
+                <p class="text-base font-semibold leading-snug">
+                  Youth Association Calls for the Barring of NPP’s Activities
+                  Amid Court Cases Against Senior Leaders.
+                </p>
+                <p class="text-xs text-gray-500 mt-1">28 Apr 2025</p>
+              </div>
+            </div>
 
-        <!-- Card 5 -->
-        <div class="relative bg-white rounded overflow-hidden shadow">
-          <img
-            src="../iamge/tech/00nat-george-qanon-top3-bglt-copy-articleLarge.webp"
-            class="w-full h-48 sm:h-56 object-cover"
-          />
-          <div
-            class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 uppercase"
-          >
-            Magazine
-          </div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white p-1 rounded">
-            📖
-          </div>
-          <div class="p-4">
-            <p class="text-sm text-gray-700">
-              Lated <span class="text-gray-400">• 12 April 2025</span>
-            </p>
-            <h2
-              class="font-bold text-base sm:text-lg text-secondary bg-opacity-70 mt-2 p-1"
-            >
-              On the other hand, we denounce with righteous and deby
-            </h2>
+            <div class="flex gap-4 animate-slide-left delay-300">
+              <img
+                src="../iamge/politics/pic4.png"
+                alt="Youth Association"
+                class="w-32 h-24 object-cover rounded-md shadow"
+              />
+              <div>
+                <p class="text-base font-semibold leading-snug">
+                  Youth Association Calls for the Barring of NPP’s Activities
+                  Amid Court Cases Against Senior Leaders.
+                </p>
+                <p class="text-xs text-gray-500 mt-1">28 Apr 2025</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 animate-slide-left delay-400">
+              <img
+                src="../iamge/politics/pic5.png"
+                alt="Youth Association"
+                class="w-32 h-24 object-cover rounded-md shadow"
+              />
+              <div>
+                <p class="text-base font-semibold leading-snug">
+                  Youth Association Calls for the Barring of NPP’s Activities
+                  Amid Court Cases Against Senior Leaders.
+                </p>
+                <p class="text-xs text-gray-500 mt-1">28 Apr 2025</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 animate-slide-left delay-500">
+              <img
+                src="../iamge/politics/pic6.png"
+                alt="Candlelight Party"
+                class="w-32 h-24 object-cover rounded-md shadow"
+              />
+              <div>
+                <p class="text-base font-semibold leading-snug">
+                  Candlelight Party Leaders Absent from Meeting Amid Legal
+                  Troubles
+                </p>
+                <p class="text-xs text-gray-500 mt-1">26 Apr 2025</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
+    <!-- Additional News Section -->
+    <section class="py-16 bg-[#f8f8f8] px-4 text-center">
+      <h1
+        class="text-4xl font-bold border-b-2 border-red-600 inline-block mb-10 animate-fade-in-up"
+      >
+        News
+      </h1>
+
+      <div class="max-w-6xl mx-auto grid gap-10">
+        <!-- News Card 1 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in"
+        >
+          <img
+            src="../iamge/politics/pic2.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Youth Association Calls for the Barring of NPP’s Activities Amid
+              Court Against Senior Party Leaders
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              RSF Report: Cambodia’s Press Freedom Score Drops Further But Gov’t
+              States Real Situation is “Very Good”
+            </p>
+            <p class="text-xs text-gray-500">2 May 2025</p>
+          </div>
+        </div>
+
+        <!-- News Card 2 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in animation-delay-2"
+        >
+          <img
+            src="../iamge/politics/pic3.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Candlelight Party Leaders Absent from Meeting Amid Ongoing Legal
+              Troubles
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              Political tension continues as court summons more opposition
+              leaders.
+            </p>
+            <p class="text-xs text-gray-500">26 Apr 2025</p>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in animation-delay-2"
+        >
+          <img
+            src="../iamge/politics/pic4.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Candlelight Party Leaders Absent from Meeting Amid Ongoing Legal
+              Troubles
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              Political tension continues as court summons more opposition
+              leaders.
+            </p>
+            <p class="text-xs text-gray-500">26 Apr 2025</p>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in animation-delay-2"
+        >
+          <img
+            src="../iamge/politics/pic5.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Candlelight Party Leaders Absent from Meeting Amid Ongoing Legal
+              Troubles
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              Political tension continues as court summons more opposition
+              leaders.
+            </p>
+            <p class="text-xs text-gray-500">26 Apr 2025</p>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in animation-delay-2"
+        >
+          <img
+            src="../iamge/politics/pic3.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Candlelight Party Leaders Absent from Meeting Amid Ongoing Legal
+              Troubles
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              Political tension continues as court summons more opposition
+              leaders.
+            </p>
+            <p class="text-xs text-gray-500">26 Apr 2025</p>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div
+          class="flex flex-col md:flex-row gap-6 border-2 border-gray-100 p-4 rounded-xl animate-zoom-in animation-delay-2"
+        >
+          <img
+            src="../iamge/politics/pic1.png"
+            alt="News Image"
+            class="w-full md:w-[300px] h-[200px] object-cover rounded"
+          />
+          <div class="text-start">
+            <h2 class="font-bold text-[22px] hover:text-red-600 mb-2">
+              Candlelight Party Leaders Absent from Meeting Amid Ongoing Legal
+              Troubles
+            </h2>
+            <p class="text-sm font-semibold mb-1">
+              Political tension continues as court summons more opposition
+              leaders.
+            </p>
+            <p class="text-xs text-gray-500">26 Apr 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer class="bg-gray-900 text-white mt-20">
       <!-- Top Footer Section -->
@@ -327,7 +508,7 @@
           <ul class="space-y-3">
             <li>
               <a
-                href="#"
+                href="./politics.html"
                 class="hover:text-primary transition-colors flex items-center"
                 ><i class="fa-solid fa-angle-right mr-2 text-primary"></i>
                 Politics</a
